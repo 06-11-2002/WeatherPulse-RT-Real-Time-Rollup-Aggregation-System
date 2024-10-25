@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Monitoring System</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Weather Monitoring System</h1>
+      </div>
+
+      <div class="controls">
+        <select class="city-select" id="citySelect">
+          <option value="Delhi,IN">Delhi</option>
+          <option value="Mumbai,IN">Mumbai</option>
+          <option value="Chennai,IN">Chennai</option>
+          <option value="Bangalore,IN">Bangalore</option>
+          <option value="Kolkata,IN">Kolkata</option>
+          <option value="Hyderabad,IN">Hyderabad</option>
+        </select>
+
+        <select class="temp-unit" id="tempUnit">
+          <option value="celsius">Celsius</option>
+          <option value="fahrenheit">Fahrenheit</option>
+        </select>
+
+        <button class="refresh-btn" onclick="fetchWeatherData()">
+          Refresh Data
+        </button>
+      </div>
+
+      <div class="threshold-controls">
+        <h3>Alert Thresholds</h3>
+        <div class="threshold-input">
+          <input
+            type="number"
+            id="maxTempThreshold"
+            placeholder="Max Temperature"
+          />
+          <select id="maxTempUnit">
+            <option value="celsius">°C</option>
+            <option value="fahrenheit">°F</option>
+          </select>
+          <button onclick="updateThresholds()">Set Threshold</button>
+        </div>
+      </div>
+
+      <div id="alertContainer"></div>
+
+      <div class="weather-grid" id="weatherGrid"></div>
+
+      <div class="chart-container">
+        <canvas id="weatherChart"></canvas>
+      </div>
+    </div>
+
+    <div class="loader" id="loader"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="script.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script> -->
+  </body>
+</html>
